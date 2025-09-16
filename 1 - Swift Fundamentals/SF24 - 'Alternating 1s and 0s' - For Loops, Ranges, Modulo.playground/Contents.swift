@@ -23,3 +23,23 @@
     //  Alternate from there as expected, i.e. "01010"
 
 import Foundation
+
+func stringy(size: Int, startAtOne: Bool) -> String {
+    var oneOrZero = startAtOne
+    var counter = 0
+    var finalString = ""
+    
+    while counter < size {
+        if oneOrZero {
+            finalString += "1"
+            oneOrZero = false
+        } else {
+            finalString += "0"
+            oneOrZero = true
+        }
+        counter += 1
+    }
+    return finalString
+}
+
+print(stringy(size: 11, startAtOne: false))

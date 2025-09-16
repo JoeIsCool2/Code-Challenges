@@ -17,3 +17,25 @@
     //  Output the century as an ordinal number in a String. That means 21 becomes 21st, 4 becomes 4th, etc.
 
 import Foundation
+
+func yearToCentury(year: Int) -> String {
+    var century = 0
+    if (year % 100) == 0 {
+        century = (year / 100)
+    } else {
+        century = (year / 100) + 1
+    }
+    switch century{
+    case 11...13:return "\(century)th"
+    default:
+        var lastDigit = century % 10
+        switch lastDigit {
+        case 1: return "\(century)st"
+        case 2: return "\(century)nd"
+        case 3: return "\(century)rd"
+        default: return "\(century)th"
+        }
+    }
+}
+
+print(yearToCentury(year: 1901))

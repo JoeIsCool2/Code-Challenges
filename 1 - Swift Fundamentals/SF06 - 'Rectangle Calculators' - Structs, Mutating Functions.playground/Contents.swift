@@ -20,3 +20,20 @@
     //  Create a function in the struct called "scale" have it take an Int as a parameter. Multiply each side of the rectangle by the parameter to "scale up" the rectangle. This function does not return anything.
 
 import Foundation
+
+struct Rectangle {
+    var sideA: Int
+    var sideB: Int
+    
+    func area() -> Int {
+        return sideA * sideB
+    }
+    
+    func perimeter() -> Int {
+        return (sideA * 2) + (sideB * 2)
+    }
+}
+
+var rectangle = Rectangle(sideA: 4, sideB: 5)
+print("Area: ", rectangle.area())
+print("Perimeter: ", rectangle.perimeter())

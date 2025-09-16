@@ -8,7 +8,10 @@
     //  2) Declare a Int variable called age
     //  3) On a new line initialize name and age with your name and your age
     //  4) Create a pi constant with the value of 3.14
-
+var name: String, age:Int
+name = "joe"; age = 57
+let Pi = 3.14159
+print(name,age, Pi)
 //  Examples: (Using other types of variables)
     //  var job: String
     //  var years: Int
@@ -20,5 +23,5 @@
 
 //  ⌺ Black Diamond Challenge:
     //  Create a variable with an initial value, unlike the ones above.
-
+var food : String = "pizza"
 import Foundation

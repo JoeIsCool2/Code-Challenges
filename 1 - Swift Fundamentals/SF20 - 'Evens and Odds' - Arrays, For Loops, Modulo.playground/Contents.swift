@@ -26,3 +26,25 @@
 //          "13: Odd"
 
 import Foundation
+
+func evenOrOdd(numbers: [Int]) {
+    for number in numbers {
+        if number % 2 == 0 {
+            print("\(number): Even")
+        } else {
+            print("\(number): Odd")
+        }
+    }
+}
+
+func evenOrOddAdvanced(min: Int, max: Int) {
+    for number in min...max {
+        if number % 2 == 0 {
+            print("\(number): Even")
+        } else {
+            print("\(number): Odd")
+        }
+    }
+}
+
+evenOrOddAdvanced(min: -1, max: 1)

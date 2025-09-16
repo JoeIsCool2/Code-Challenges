@@ -16,3 +16,15 @@
     //  Create a second function that instead returns two arrays, separating the positive and the negative numbers in the array. You can return it as an ([Int], [Int]) tuple, or as a custom structure holding both arrays.
 
 import Foundation
+
+func addPos(numbers: [Int]) -> Int {
+    numbers.filter { $0 >= 0 }.reduce(0, +)
+}
+
+func seperate(numbers: [Int]) -> ([Int], [Int]) {
+    let positive = numbers.filter { $0 >= 0 }
+    let negative = numbers.filter { $0 < 0 }
+    return (positive, negative)
+}
+
+addPos(numbers: [0])

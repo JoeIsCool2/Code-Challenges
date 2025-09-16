@@ -18,6 +18,24 @@
 
 import Foundation
 
+func findArea(cube: [Int]) -> Int {
+    var area = 1
+    for numbers in cube {
+        area *= numbers
+    }
+    return area
+}
+
 func differenceInVolumes(cube1: [Int], cube2: [Int]) -> Int? {
-    return nil
+    if cube1.count == 3 && cube2.count == 3 {
+        return abs(findArea(cube: cube1) - findArea(cube: cube2))
+    } else {
+        return nil
+    }
+}
+
+let cubes = differenceInVolumes(cube1: [5, 4, 1], cube2: [2, 2, 3])
+
+if let cubes {
+    print(cubes)
 }

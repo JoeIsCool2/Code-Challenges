@@ -25,6 +25,41 @@
 import Foundation
 
 func getGrade(_ s1: Int, _ s2: Int, _ s3: Int) -> String {
-  // Code here
-  return ""
+  
+    var averageScore = (s1 + s2 + s3) / 3
+    
+    switch averageScore {
+    case 90...Int.max:
+        switch averageScore {
+        case Int.min...92: return "A-"
+        default: return "A"
+        }
+        
+    case 80...90:
+        switch averageScore {
+        case Int.min...82: return "B-"
+        case 87...Int.max: return "B+"
+        default: return "B"
+        }
+        
+    case 70...80:
+        switch averageScore {
+        case Int.min...72: return "C-"
+        case 77...Int.max: return "C+"
+        default: return "C"
+        }
+        
+    case 60...70:
+        switch averageScore {
+        case Int.min...62: return "D-"
+        case 67...Int.max: return "D+"
+        default: return "D"
+        }
+        
+    case Int.min...60: return "F"
+        
+    default: return "Wrong"
+    }
 }
+
+print(getGrade(100, 70, 20))

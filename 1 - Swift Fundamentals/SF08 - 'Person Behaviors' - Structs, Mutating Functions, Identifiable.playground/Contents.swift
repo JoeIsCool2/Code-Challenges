@@ -13,3 +13,16 @@
     //  Add a variable called bodyMassIndex. Set its initial value to 0. Assuming height is in meters and weight is in kilograms, compute the bodyMassIndex property any time height and weight change.
 
 import Foundation
+
+struct Person {
+    var name: String
+    var age: Int
+    var height: Double
+    var weight: Double
+    
+    func greetings {
+        print("Hello, my name is \(name), and I am \(age) years old.")
+    }
+    
+    
+}
