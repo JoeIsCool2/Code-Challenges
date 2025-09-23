@@ -24,3 +24,21 @@
     //  Create another function. This time, return the first and last n elements of the array. If the first and last n elements overlap (i.e., 3 first and 3 last in a 5 element array), return the whole array.
 
 import Foundation
+
+func findWolf(animalLine: [String]) {
+    var counter = animalLine.count - 1
+    for animal in animalLine {
+        if animal.lowercased() == "wolf"{
+            if counter > 0 {
+                print("Oi! Sheep number \(counter)! You are about to be eaten by a wolf!")
+            } else {
+                print("Pls go away and stop eating my sheep")
+            }
+        } else {
+            counter -= 1
+        }
+    }
+}
+
+findWolf(animalLine: ["sheep", "sheep", "sheep", "wolf", "sheep"])
+findWolf(animalLine: ["sheep", "sheep", "wolf"])
