@@ -22,3 +22,26 @@
     //  There is another solution to this problem that does not take as long, though it may be difficult at this stage in your progress to know how to code it. In a comment, brainstorm how that secondary solution might work.
 
 import Foundation
+
+func findNum(nums: [Int], target: Int) -> [Int] {
+    var numbers = nums
+    var output: [Int] = []
+    for (index1, number1) in numbers.enumerated() {
+        for (index2, number2) in numbers.enumerated() {
+            if number1 + number2 == target {
+                output.append(index1)
+                output.append(index2)
+                numbers.remove(at: index1)
+                numbers.insert(-100, at: index1)
+                numbers.remove(at: index2)
+                numbers.insert(-100, at: index2)
+            }
+        }
+    }
+    return output
+}
+
+print(findNum(nums: [2,7,11,15,1,8], target: 9))
+
+// It would take a long time because this is going through everysingle value in nums twice and checking them so the bigger it gets the more time it takes because the more stuff it had to go through
+//I think and easiers way to dop this would be with like .map or .filter or .reduce
