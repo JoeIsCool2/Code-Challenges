@@ -19,19 +19,3 @@
     //  Create a function that not only calculates the average and rounds down, but also returns the highest and lowest values in the array.
 
 import Foundation
-
-func findAveragePlusMore(numbers: [Double]) -> String {
-    guard numbers.isEmpty else {
-        
-        let bigNumber: Double = numbers.reduce(0, +)
-        let finalNumber = (bigNumber / Double(numbers.count))
-        
-        let biggestNumber = numbers.reduce(Int.min){ max($0, Int($1)) }
-        let smallestNumber = numbers.reduce(Int.max){ min($0, Int($1)) }
-        
-        return "The average is \(Int(floor(finalNumber))), the biggest number is \(biggestNumber) and the smallest number is \(smallestNumber)"
-    }
-    return "0"
-}
-
-print(findAveragePlusMore(numbers: [90, 90, 90, 80, 50, 0, 60, 70, 80]))

@@ -21,6 +21,3 @@
     //  Create another function. Accomplish the same goal using generics instead of function overloading.
 
 import Foundation
-func checkArray(array: [Int], value: Int) -> Bool {array.contains(value)}
-func checkArray(array: [String], value: String) -> Bool {array.contains(value)}
-print(checkArray(array: [1, 2, 3, 4, 5], value: 3))

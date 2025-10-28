@@ -21,19 +21,3 @@
     //  Input: -5, Math: -5 + -4 + -3 + -2 + -1, Output: -15
 
 import Foundation
-
-func findSum(input: Int) -> Int{
-    var total = 0
-    if input > 1 {
-        for number in 1...input {
-            total += number
-        }
-    } else {
-        for number in input...0 {
-            total += number
-        }
-    }
-        return total
-}
-
-print(findSum(input: -5))

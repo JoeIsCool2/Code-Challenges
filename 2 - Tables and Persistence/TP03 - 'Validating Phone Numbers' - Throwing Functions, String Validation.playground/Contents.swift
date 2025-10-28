@@ -17,14 +17,3 @@
     //  You can find phone number formats here: 🔗https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
 
 import Foundation
-
-func formatingPhoneNumber(phoneNumber: String) -> String? {
-    var numbersCheck = phoneNumber
-    numbersCheck.filter{$0.isNumber}
-    if numbersCheck == phoneNumber && phoneNumber.count == 10 {
-        return "(\(phoneNumber.prefix(3)))-\(phoneNumber.dropFirst(3).prefix(3))-\(phoneNumber.suffix(4))"
-    }
-    return nil
-}
-
-print(formatingPhoneNumber(phoneNumber:"5558675309")!)
