@@ -25,3 +25,13 @@
     //  Output: [1, 4, 4]
 
 import Foundation
+
+func indexToPower(array: [Int], N: Int) -> Int? {
+    guard N >= 0 && N < array.count else { return nil }
+    guard array.allSatisfy({ $0 >= 0 }) else { return nil }
+
+    return Int(pow(Double(array[N]), Double(N)))
+}
+
+print(indexToPower(array: [1, 2, 3, 4], N: 3)!) // prints 9 (3^2)
+

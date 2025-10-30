@@ -20,3 +20,20 @@
     //  Make it so that your function only accepts positive integers and a limit higher than the base. Return nil or throw an error if not.
 
 import Foundation
+
+func multipleToLimit(_ integer: Int, _ limit: Int) -> [Int] {
+    guard integer > 0 && integer < limit else { return [integer, limit]}
+    var currentValue = integer
+    var allInts: [Int] = []
+    while currentValue <= limit {
+        allInts.append(currentValue)
+        currentValue += integer
+    }
+    return allInts
+}
+
+func multipleToLimitOneLine(_ integer: Int, _ limit: Int) -> [Int] {
+    (integer > 0 && integer < limit) ? Array(stride(from: integer, through: limit, by: integer)) : [integer, limit]
+}
+
+print(multipleToLimitOneLine(3, 111))
