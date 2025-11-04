@@ -18,3 +18,11 @@
     //  The function should return true if the number n is divisible by *all* numbers in the 'divisors' array, and false if it is not divisible by any one of them.
 
 import Foundation
+
+func willItDivide(n: Int, x: Int, y: Int) -> Bool{
+    guard n * x * y != 0 && n > 0 && x > 0 && y > 0 else { return false }
+    if n % x == 0 && n % y == 0 { return true }
+    return false
+}
+
+print(willItDivide(n: 10, x: 2, y: -5))

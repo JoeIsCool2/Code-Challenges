@@ -18,3 +18,19 @@
     //  let sum = [1,2,3,4,5].sumWithoutExtremes()
 
 import Foundation
+
+func sumWithoutExtremes(_ input: [Int]) -> Int {
+    guard input.count >= 3 else { return 0 }
+    return input.reduce(0, +) - input.max()! - input.min()!
+}
+
+extension Array where Element == Int {
+    func sumWithoutExtremes() -> Int {
+        guard self.count >= 3 else { return 0 }
+        return self.reduce(0, +) - self.max()! - self.min()!
+    }
+}
+
+print(sumWithoutExtremes([15,5,6,7,2,3,22,12,22]))
+let sum = [1,2,3,4,5].sumWithoutExtremes()
+print(sum)

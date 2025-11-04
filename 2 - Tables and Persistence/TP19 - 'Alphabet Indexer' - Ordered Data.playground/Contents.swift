@@ -17,3 +17,13 @@
     //  Rewrite your function to not rely on using a literal array for the alphabet. (In other words, the alphabet itself should not appear in your function.)
 
 import Foundation
+
+func findLetter(letter: Character) -> Int? {
+    let alphabet = "Aabcdefghijklmnopqrstuvwxyz"
+    guard alphabet.contains(letter.lowercased()) else { return nil }
+    let indexOfLetter = alphabet.firstIndex(of: Character(letter.lowercased()))!
+    let index: Int = alphabet.distance(from: alphabet.startIndex, to: indexOfLetter)
+    return index
+}
+
+print(findLetter(letter: "P")!)
