@@ -18,3 +18,24 @@
     //  Input: 4, Output: [1, 4, 16, 64, 256]
 
 import Foundation
+
+func powerOfTwo(_ number: Int) -> [Int] {
+    guard number >= 0 else { return [] }
+    var allNumbers: [Int] = []
+    for num in 0...number {
+        allNumbers.append(Int(pow(2.0, Double(num))))
+    }
+    return allNumbers
+}
+
+func powerOfN(_ number: Int) -> [Int] {
+    guard number >= 0 else { return [] }
+    var allNumbers: [Int] = []
+    for num in 0...number {
+        allNumbers.append(Int(pow(Double(number), Double(num))))
+    }
+    return allNumbers
+}
+
+print(powerOfTwo(5))
+print(powerOfN(4))
