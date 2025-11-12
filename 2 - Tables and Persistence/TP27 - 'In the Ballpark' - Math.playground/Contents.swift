@@ -27,3 +27,10 @@
     //  Ensure that the function still considers the margin when comparing the rounded values.
 
 import Foundation
+
+func ballparkCompare(a: Int, b: Int, margin: Int) -> Int {
+    if a - b <= margin && a - b > 0 || b - a <= margin && b - a > 0 { return 0 }
+    return (a - b) / abs(a - b)
+}
+
+print(ballparkCompare(a: 130, b: 80, margin: 60))

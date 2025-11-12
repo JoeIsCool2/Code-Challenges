@@ -23,3 +23,33 @@
     //  3. A digit within a string: "abc7xyz" should return true.
 
 import Foundation
+
+func isDigit(_ input: String) -> Bool {
+    if input.count != 1 { return false }
+    if let digit = Int(input) { return true }
+    return false
+}
+
+func isDigitComplex(_ input: String) -> Bool {
+    let numbers = "1234567890"
+    let newInput = input.filter{ numbers.contains($0) }
+    if newInput.count != 1 { return false }
+    if let digit = Int(newInput) { return true }
+    return false
+}
+
+func isDigitRegex(_ input: String) -> Bool {
+    if try! /^\d\s*$/.wholeMatch(in: input) != nil {
+        return true
+    }
+    if try! /^\s*[+,-]?\d\s*$/.wholeMatch(in: input) != nil {
+        return true
+    }
+    if try! /^\s*[+, -]?\d[a-z]*?\s*$/.wholeMatch(in: input) != nil {
+        return true
+    }
+    return false
+}
+
+print(isDigitComplex("asdfasf9"))
+print(isDigitRegex("-8"))

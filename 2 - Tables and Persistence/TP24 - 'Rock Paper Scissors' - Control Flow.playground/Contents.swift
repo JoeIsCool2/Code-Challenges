@@ -42,13 +42,6 @@ func play(p1: RockPaperScissors, p2: RockPaperScissors) -> String{
 print(play(p1: .rock, p2: .rock))
 
 
-
-
-
-
-
-
-
 func playOnePlayer(p1: RockPaperScissors) -> String{
     let p2 = RockPaperScissors.randomChoice()
     
