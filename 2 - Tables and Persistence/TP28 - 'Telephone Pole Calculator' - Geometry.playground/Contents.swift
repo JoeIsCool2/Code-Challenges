@@ -19,3 +19,10 @@
     //  On the opposite side of the street are another set of telephone poles, of the same number, same radius, and same distances. Create a second function that returns the distance between the first pole on one side of the road and the last pole on the other.
 
 import Foundation
+
+func poleDistance(numOfPillars: Int, distance: Int, diameter: Int) -> Int{
+    (numOfPillars - 1) * ((distance * 100) + diameter)
+}
+
+print("\(poleDistance(numOfPillars: 5, distance: 25, diameter: 10))cm")
+print("\(poleDistance(numOfPillars: 3, distance: 6, diameter: 9))cm")
