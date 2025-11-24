@@ -15,3 +15,8 @@
     //  Suzuki wants to know which days of the week he climbed more stairs on average. Assuming the input array's contents are organized as [sunday, monday, tuesday, wednesday, thursday, friday, saturday], find the average number of stairs climbed for each day, then output a string of the weekdays, presenting them in order highest to lowest average (i.e. "tuesday, friday, wednesday, thursday, monday, saturday, sunday")
 
 import Foundation
+
+func howManyStairs(data: [Int]) -> Int {
+    data.reduce(0, +) * 20
+}
+print(howManyStairs(data: [67,643,6543,1245,9875,65437654,5432,7654]))

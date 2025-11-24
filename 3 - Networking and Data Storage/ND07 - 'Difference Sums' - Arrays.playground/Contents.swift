@@ -19,3 +19,21 @@
     //  Calculate and return the average difference as well.
 
 import Foundation
+
+func absoluteDifference(_ input: [Int]) -> (total: Int, average: Int) {
+    guard input.count > 1 else { return (0,0) }
+    var finalNumber = 0
+    var averageDifferent = 0
+    for (index, number) in input.enumerated() {
+        if index + 1 < input.count {
+            finalNumber += abs(number - input[index + 1])
+        } else {
+            break
+        }
+    }
+    averageDifferent = finalNumber / (input.count - 1)
+    return (finalNumber, averageDifferent)
+}
+
+print(absoluteDifference([2, 1, 11, 10]))
+
