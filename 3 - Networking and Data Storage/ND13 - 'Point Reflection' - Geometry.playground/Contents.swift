@@ -24,3 +24,12 @@ struct Point {
     var x: Int
     var y: Int
 }
+
+func pointReflection(_ point1: Point, _ point2: Point) -> Point {
+    let x = (2 * point2.x) - point1.x
+    let y = (2 * point2.y) - point1.y
+    return Point(x: x, y: y)
+}
+
+print(pointReflection(Point(x: 0, y: 0), Point(x: 1, y: 1)))
+print(pointReflection(Point(x: 2, y: 6), Point(x: -2, y: -6)))

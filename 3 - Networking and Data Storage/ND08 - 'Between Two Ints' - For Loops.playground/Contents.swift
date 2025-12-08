@@ -18,3 +18,25 @@
     //  Output: [3, 6, 9]
 
 import Foundation
+
+func loop(smallNumber: Int, bigNumber: Int) -> [Int] {
+    var smallNumber = smallNumber
+    var allNumbers: [Int] = []
+    for _ in smallNumber...bigNumber {
+        allNumbers.append(smallNumber)
+        smallNumber += 1
+    }
+    return allNumbers
+}
+
+func findAllNumbers(_ numberOne: Int, _ numberTwo: Int, _ step: Int) -> [Int] {
+    var allNumbers: [Int] = []
+    if numberOne > numberTwo {
+        allNumbers = loop(smallNumber: numberTwo, bigNumber: numberOne)
+    } else if numberTwo > numberOne {
+        allNumbers = loop(smallNumber: numberOne, bigNumber: numberTwo)
+    }
+    return allNumbers.filter{ $0 % step == 0 }
+}
+
+print(findAllNumbers(21, 1, 7))

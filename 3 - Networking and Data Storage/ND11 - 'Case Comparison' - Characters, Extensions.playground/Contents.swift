@@ -24,3 +24,30 @@
     //  Add another method that will instead return the input character in the same case as self.
 
 import Foundation
+
+struct Character {
+    let input: String
+    
+    let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    
+    func sameCaseAs(Character: String) -> Int {
+        var returnValue = 0
+        
+        if input.count == 1 && Character.count == 1 && upper.lowercased().contains(input.lowercased()) && upper.lowercased().contains(Character.lowercased()) {
+            if upper.contains(input) {
+                if upper.contains(Character) {
+                    returnValue = 1
+                }
+            } else if !upper.contains(Character) {
+                returnValue = 1
+            }
+        } else {
+            returnValue = -1
+        }
+        return returnValue
+    }
+}
+
+Character(input: "a").sameCaseAs(Character: "h")
+Character(input: "H").sameCaseAs(Character: "f")
+Character(input: "5").sameCaseAs(Character: "q")
