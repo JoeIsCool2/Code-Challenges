@@ -29,14 +29,19 @@ import PlaygroundSupport
 
 struct ContentView: View {
     @State var squaresFilled = 1
-    
+    let rows = [GridItem(.fixed(30)),
+                GridItem(.fixed(30)),
+                GridItem(.fixed(30)),
+                GridItem(.fixed(30)),
+                GridItem(.fixed(30))]
+
     var body: some View {
         VStack {
-            ForEach(0..<10) { row in
-                HStack {
-                    ForEach(0..<5) { column in
-                        // FIXME: Add code below to display red rectangles
-                    }
+            LazyHGrid(rows: rows) {
+                ForEach(0...squaresFilled, id: \.self) { _ in
+                    Rectangle()
+                        .fill(.red)
+                        .frame(width: 20, height: 20)
                 }
             }
         }

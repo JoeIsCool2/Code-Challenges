@@ -19,24 +19,38 @@ import PlaygroundSupport
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("My Profile")
             
-            Spacer()
+            ZStack {
+                Image(systemName: "person")
+                    .padding()
+                    .glassEffect()
+            }
+            .padding()
+            .font(.custom("", size: 150))
+            Text("My Profile")
+                .font(.custom("American Typewriter", size: 60))
+                .bold()
             
             Text("Hi! My name is...")
-
+                .font(.custom("American Typewriter", size: 40))
             Spacer()
-            
-            Text("My interests are...")
-            
-            Spacer()
-            
-            Text("I really dislike...")
-            
+            HStack {
+                Spacer()
+                Text("My interests are...")
+                Spacer()
+                
+                Text("I really dislike...")
+                
+                Spacer()
+            }
+            .font(.custom("American Typewriter", size: 20))
             Spacer()
         }
+        .padding()
+        .glassEffect()
+        .padding()
         .frame(width: 500, height: 700)
-        .background(Color.cyan)
+        .background(LinearGradient(colors: [.white, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
     }
 }
 

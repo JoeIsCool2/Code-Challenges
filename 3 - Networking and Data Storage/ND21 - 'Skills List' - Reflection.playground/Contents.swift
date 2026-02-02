@@ -12,6 +12,6 @@
 
 //  MARK: Student response
 /*  Write your response below.
- 
+ I have mastered saving data using swift data and building ui. I have gotten alot better at everthing that has to do with building an app like even the logic but i think ive gotten better at the ui the most.
  
  */

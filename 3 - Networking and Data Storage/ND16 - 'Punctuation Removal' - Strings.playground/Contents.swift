@@ -18,3 +18,11 @@
     //  Input: "...This is a good example!!!", Output: "This is a good example"
 
 import Foundation
+
+func puctuationRemoval(_ input: String) -> String {
+    let puctiationCharectures = CharacterSet.punctuationCharacters
+    let noLastPunc =  input.trimmingCharacters(in: puctiationCharectures)
+    return noLastPunc
+}
+
+print(puctuationRemoval("Greetings, friends!!"))

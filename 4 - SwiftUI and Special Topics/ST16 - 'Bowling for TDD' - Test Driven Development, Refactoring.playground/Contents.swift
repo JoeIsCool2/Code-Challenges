@@ -158,3 +158,4 @@ class TestObserver: NSObject, XCTestObservation {
 let testObserver = TestObserver()
 XCTestObservationCenter.shared.addTestObserver(testObserver)
 BowlingGameTests.defaultTestSuite.run()
+

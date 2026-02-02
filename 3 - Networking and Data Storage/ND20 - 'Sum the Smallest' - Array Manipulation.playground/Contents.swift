@@ -16,3 +16,26 @@
     //  If there are too few positive integers left after excluding the specified numbers, return nil.
 
 import Foundation
+
+func sumTheSmallOnes(_ input: [Int], exculded: [Int]) -> Int {
+    var allPositive = input.filter { $0 >= 0}
+    var positiveExculded = allPositive.filter{ !exculded.contains($0) }
+    guard positiveExculded.count >= 2 else { return 0 }
+    var twoSmallestNumber: [Int] = []
+    for number in positiveExculded {
+        if twoSmallestNumber.count >= 2 {
+            for (index, currentSmallNums) in twoSmallestNumber.enumerated() {
+                if number < currentSmallNums {
+                    twoSmallestNumber.remove(at: index)
+                    twoSmallestNumber.append(number)
+                    break
+                }
+            }
+        } else {
+            twoSmallestNumber.append(number)
+        }
+    }
+    return twoSmallestNumber.reduce(0, +)
+}
+
+print(sumTheSmallOnes([19, 5, 42, 2, 77, -5], exculded: [5, 2]))
