@@ -13,5 +13,5 @@
 
 // MARK: Student response
 /*
- 
+ fill the 5 dump it into 3 then you have 2 then you put that in a nother bottle and do it again to get 4.
  */
