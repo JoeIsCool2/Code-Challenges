@@ -55,6 +55,10 @@
         //  ["task-1.html", "task-2.js"] ]
 import Foundation
 
-func cleanUp(_ input: [String], _ type: String) -> [[String]] {
-    return []
+enum CleanUpStyle { case prefix, suffix }
+
+func cleanUp(_ files: [String], _ style: CleanUpStyle) -> [[String]] {
+    files.reduce(into: (d: [String:[String]](), o: [String]())) { a, f in let i = f.lastIndex(of: "."); let k = (style == .prefix) ? (i.map { String(f[..<$0]) } ?? f) : (i.map { String(f[f.index(after: $0)...]) } ?? f); if a.d[k] == nil { a.o.append(k) }; a.d[k, default: []].append(f) }.o.map { key in files.reduce(into: [String]()) { r, f in let i = f.lastIndex(of: "."); let k = (style == .prefix) ? (i.map { String(f[..<$0]) } ?? f) : (i.map { String(f[f.index(after: $0)...]) } ?? f); if k == key { r.append(f) } } }
 }
+
+print(cleanUp(["ex1.html", "ex1.js", "ex2.html", "ex2.js"], .prefix))

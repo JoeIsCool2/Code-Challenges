@@ -30,4 +30,30 @@
 
 //  ⌺ Black Diamond Challenge:
     //  7s are special now. They only like to hang out between one odd and one even number. Rewrite your code to take the case of 7s into account.
-import Foundation
+func howManySpots(array: [Int], me: Int) -> Int {
+    let parities = array.map { $0 % 2 }
+    let meParity = me % 2
+    var count = 0
+    if parities.count >= 2 {
+        for i in 0..<(parities.count - 1) {
+            let left = parities[i]
+            let right = parities[i + 1]
+            if me == 7 {
+                if (left == 0 && right == 1) || (left == 1 && right == 0) {
+                    count += 1
+                }
+            } else {
+                if meParity == left || meParity == right {
+                    count += 1
+                }
+            }
+        }
+    }
+
+    return count
+}
+
+print(howManySpots(array: [1, 8, 4, 5], me: 8))
+print(howManySpots(array: [0, 4, 6, 8], me: 9))
+print(howManySpots(array: [0, 4, 6, 8], me: 12))
+print(howManySpots(array: [4, 4, 4, 4, 5], me: 7))

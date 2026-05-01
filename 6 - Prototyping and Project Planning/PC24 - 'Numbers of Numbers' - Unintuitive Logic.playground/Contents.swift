@@ -19,3 +19,4 @@
     //  Make it so that your function also stores a log of all processed integers in the form of a dictionary, where the key is the input integer and the value is the output integer. Change your function so that, if an already processed integer is passed to it, it finds the correct output from the dictionary and returns that instead of reprocessing the input.
 
 import Foundation
+

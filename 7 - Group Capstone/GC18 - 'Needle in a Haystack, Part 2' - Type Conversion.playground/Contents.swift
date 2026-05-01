@@ -26,4 +26,31 @@
     //  Like before, you can assume the input haystack will always cotain the needle.
     //  You only need to return the first appearance of each subsequent letter (i.e., in the above example, only the "o" in "meteor" is used, not the one in "shower").
 
-import Foundation
+// MARK: - Minimal compact solutions (non-destructive)
+
+/// Minimal: first index of needle within hex haystack
+func indexOfNeedle_min(_ haystackHex: String, _ needle: String) -> Int {
+    let h = haystackHex.split(separator: " ").compactMap { Int($0, radix: 16) }
+    let n = Array(needle.utf8).map(Int.init)
+    guard n.count > 0, h.count >= n.count else { return 0 }
+    for i in 0...(h.count - n.count) where h[i..<(i + n.count)].elementsEqual(n) { return i }
+    return 0
+}
+
+/// Minimal: scattered positions of each letter of the needle
+func scatteredPositions_min(_ haystackHex: String, _ needle: String) -> [Int] {
+    let h = haystackHex.split(separator: " ").compactMap { Int($0, radix: 16) }
+    var start = 0, out: [Int] = []
+    for b in needle.utf8 {
+        if let idx = h[start...].firstIndex(of: Int(b)) {
+            out.append(idx); start = idx + 1
+        } else { break }
+    }
+    return out
+}
+
+// Quick sanity checks for minimal versions
+print("Example 1 ->", indexOfNeedle_min("68 65 6c 6c 6f 20 77 6f 72 6c 64", "world")) // 6
+print("Example 2 ->", indexOfNeedle_min("47 6f 6f 64 62 79 65 20 77 6f 72 6c 64", "world")) // 8
+print("Example 3 ->", indexOfNeedle_min("42 6f 72 65 64", "Bored")) // 0
+print("Example BD ->", scatteredPositions_min("6d 65 74 65 6f 72 20 73 68 6f 77 65 72", "mower")) // [0,4,10,11,12]

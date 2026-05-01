@@ -27,5 +27,13 @@
 import Foundation
 
 func timeAdjust(now: String, hrs: Int, min: Int, sec: Int) -> String {
+    let newHours = (hrs % 12) + (min / 60)
+    let newMinuts = (min % 60) + (sec / 60)
+    let newSeconds = sec % 60
+    
+    if let currentTime: Int = Int(now.filter { $0.isNumber }) {
+        
+    }
+    
     return ""
 }
