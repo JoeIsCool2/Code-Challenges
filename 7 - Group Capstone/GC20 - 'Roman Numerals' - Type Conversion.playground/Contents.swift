@@ -32,3 +32,47 @@ Thousands   M  MM  MMM  -   -   -   -   -   -
     //  Extend your code to also include a function that converts an integer to a Roman numeral. The function should take an integer as input and return a string representing the Roman numeral equivalent.
 
 import Foundation
+
+func romanNumerals(romanNumeral: String) -> Int {
+    var numbers: [Int] = []
+    var finalNumber = 0
+    
+    // 1. Convert letters to their integer values
+    for letter in romanNumeral {
+        switch letter {
+        case "I": numbers.append(1)
+        case "V": numbers.append(5)
+        case "X": numbers.append(10)
+        case "L": numbers.append(50)
+        case "C": numbers.append(100)
+        case "D": numbers.append(500)
+        case "M": numbers.append(1000)
+        default: numbers.append(0)
+        }
+    }
+    
+    // 2. Calculate the total based on Roman Numeral rules
+    for (index, number) in numbers.enumerated() {
+        // If there's a next number...
+        if index + 1 < numbers.count {
+            let nextNumber = numbers[index + 1]
+            
+            // If current is smaller than next (e.g., IV), subtract it
+            if number < nextNumber {
+                finalNumber -= number
+            } else {
+                finalNumber += number
+            }
+        } else {
+            // It's the last number in the array, always add it
+            finalNumber += number
+        }
+    }
+    
+    return finalNumber
+}
+
+// Example Usage:
+print(romanNumerals(romanNumeral: "XIV")) // Output: 14
+print(romanNumerals(romanNumeral: "MCMXCIV")) // Output: 1994
+ 
